@@ -1,0 +1,162 @@
+.header {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  z-index: 333;
+
+  @include desktop {
+    top: 30px;
+  }
+}
+
+.header__container {
+  @include container;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 15px;
+}
+
+.header__toggle {
+  @include buttons;
+  @include button-primary;
+
+  padding: 4px 60px 5px 20px;
+  max-width: 290px;
+  min-height: 54px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0.28px;
+  text-align: center;
+  background-color: $white;
+
+  @include tablet {
+    padding: 4px 60px 5px 20px;
+    max-width: 286px;
+    min-height: 56px;
+  }
+
+  @include desktop {
+    min-height: 56px;
+  }
+
+  &::before {
+    width: 18px;
+    height: 8px;
+    right: 18px;
+    background-color: $white;
+    mask-image: url("/__spritemap#sprite-burger-view");
+    mask-repeat: no-repeat;
+    transition: mask-image 0.3s ease;
+  }
+
+  &::after {
+    padding: 19px 14px;
+    width: 46px;
+    height: 46px;
+    top: 50%;
+    right: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: $primary;
+      color: $white;
+      background-color: $primary;
+
+      &::before {
+        right: 18px;
+        background-color: $primary;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        background-color: $white;
+      }
+    }
+  }
+
+  &:active {
+    border-color: initial;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: $primary;
+
+    &::before {
+      transform: translate(50%, -50%);
+      right: 27px;
+    }
+
+    &::after {
+      background-color: $white;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: $primary;
+    color: $white;
+    background-color: $primary;
+
+    &::before {
+      background-color: $primary;
+      transform: translate(50%, -50%);
+    }
+
+    &::after {
+      background-color: $white;
+    }
+  }
+}
+
+.header__toggle--opened {
+  position: absolute;
+  width: 100%;
+  max-width: 290px;
+  top: 0;
+  color: $white;
+  background-color: $primary;
+
+  @include tablet {
+    max-width: 286px;
+    right: 0;
+    min-height: 54px;
+  }
+
+  &::before {
+    width: 20px;
+    height: 20px;
+    right: 16px;
+    background-color: $primary;
+    mask-image: url("/__spritemap#sprite-burger-close-view");
+    mask-repeat: no-repeat;
+  }
+
+  &::after {
+    background-color: $white;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgba(49, 109, 194, 0.9);
+
+      &::before {
+        right: 16px;
+      }
+    }
+  }
+
+  &:focus-visible {
+    background-color: rgba(49, 109, 194, 0.9);
+  }
+
+  &:active {
+    &::before {
+      right: 26px;
+    }
+  }
+}
