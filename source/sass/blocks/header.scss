@@ -6,7 +6,7 @@
   transform: translateX(-50%);
   z-index: 333;
 
-  @include desktop {
+  @include tablet {
     top: 30px;
   }
 }
@@ -24,7 +24,7 @@
   @include buttons;
   @include button-primary;
 
-  padding: 4px 60px 5px 20px;
+  padding: 4px 60px 5px 9px;
   max-width: 290px;
   min-height: 54px;
   font-size: 14px;
@@ -35,9 +35,9 @@
   background-color: $white;
 
   @include tablet {
-    padding: 4px 60px 5px 20px;
     max-width: 286px;
     min-height: 56px;
+    padding: 21px 71px 19px 21px;
   }
 
   @include desktop {
@@ -120,6 +120,8 @@
   top: 0;
   color: $white;
   background-color: $primary;
+  text-align: left;
+  padding-left: 20px;
 
   @include tablet {
     max-width: 286px;
@@ -159,4 +161,44 @@
       right: 26px;
     }
   }
+}
+
+.nav__link-button {
+  @include buttons;
+
+  padding: 0 22px 0 0;
+}
+
+.nav__link-button::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 17px;
+  top: 50%;
+  right: 0;
+  background-color: $white;
+  opacity: 0.6;
+  mask-image: url("/__spritemap#sprite-arrow-down-view");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+
+.nav__link--open {
+  opacity: 1;
+
+  &::after {
+    transform: translateY(-50%) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+.nav__submenu {
+  margin-top: 16px;
+  padding-left: 16px;
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
 }

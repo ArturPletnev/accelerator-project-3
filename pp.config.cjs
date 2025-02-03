@@ -43,7 +43,7 @@ const VIEWPORTS = {
   'mobile': {"label": "mobile", "width": 320, "height": 480}
 };
 
-const URL = 'http://localhost:3000/index.html';
+const URL = 'http://localhost:3001/index.html';
 const REFERENCE_URL = './figma/index.html';
 
 function generateScenario(section, misMatchThreshold, viewport) {
@@ -103,7 +103,7 @@ module.exports = {
   "engine": "puppeteer",
   "engineOptions": {
     "args": ["--no-sandbox"],
-    "gotoParameters": {"waitUntil": ["load", "networkidle0"], timeout: 30000},
+    "gotoParameters": {"waitUntil": ["load", "networkidle0"], timeout: 70000},
   },
   "asyncCaptureLimit": 10,
   "asyncCompareLimit": 50,

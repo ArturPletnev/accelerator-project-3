@@ -5,20 +5,14 @@
   list-style-type: none;
 }
 
-@mixin link {
-  display: block;
-  font-family: inherit;
-  text-decoration: none;
-  color: inherit;
-}
-
 @mixin h1 {
   font-family: $font-family;
   font-size: 22px;
   font-weight: 400;
   line-height: 26px;
   text-align: left;
-  color: $text;
+  color: $primary;
+  margin: 0;
 
   @include tablet {
     font-size: 36px;
@@ -37,6 +31,8 @@
   font-weight: 400;
   line-height: 20px;
   text-align: left;
+  color: $primary;
+  margin: 0;
 
   @include tablet {
     font-size: 34px;
@@ -55,6 +51,8 @@
   font-weight: 400;
   line-height: 22px;
   text-align: left;
+  color: $primary;
+  margin: 0;
 
   @include tablet {
     font-size: 28px;
@@ -73,6 +71,7 @@
   font-weight: 400;
   line-height: 18px;
   text-align: left;
+  margin: 0;
 
   @include tablet {
     font-size: 22px;
@@ -93,6 +92,7 @@
   letter-spacing: 0.01em;
   text-align: left;
   text-transform: uppercase;
+  margin: 0;
 
   @include tablet {
     font-size: 20px;
@@ -111,6 +111,7 @@
   font-weight: 400;
   line-height: 18px;
   text-align: left;
+  margin: 0;
 
   @include tablet {
     font-size: 20px;
@@ -128,6 +129,8 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
+  color: $text;
+  margin: 0;
 
   @include tablet {
     font-size: 20px;
@@ -146,6 +149,7 @@
   font-weight: 400;
   line-height: 26px;
   text-align: left;
+  margin: 0;
 
   @include desktop {
     font-size: 18px;
@@ -159,6 +163,8 @@
   font-weight: 400;
   line-height: 20px;
   text-align: left;
+  color: $text;
+  margin: 0;
 
   @include tablet {
     font-size: 16px;
@@ -236,16 +242,9 @@
 
 @mixin buttons {
   font-family: $font-family;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 12px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-
-  @include tablet {
-    font-size: 14px;
-    line-height: 14px;
-  }
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 @mixin button-primary {
@@ -383,4 +382,12 @@
 @mixin container {
   margin: 0 auto;
   width: 290px;
+
+  @include tablet {
+    width: 678px;
+  }
+
+  @include desktop {
+    width: 1240px;
+  }
 }

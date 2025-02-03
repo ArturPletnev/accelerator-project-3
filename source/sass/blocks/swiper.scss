@@ -1,0 +1,144 @@
+.swiper-hero {
+  width: 100%;
+  min-height: 568px;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+
+  @include tablet {
+    min-height: 1024px;
+  }
+
+  @include desktop {
+    min-height: 800px;
+  }
+
+  .swiper-slide {
+    min-width: 100%;
+    height: auto;
+  }
+
+  .swiper-pagination {
+    padding: 10px 16px;
+    position: absolute;
+    min-width: 80px;
+    max-width: 80px;
+    top: 201px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 12px 12px 0 0;
+    gap: 12px;
+    background-color: $white;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1;
+
+    @include tablet {
+      padding: 14px 20px;
+      min-width: 100px;
+      max-width: 100px;
+      top: 647px;
+      border-radius: 20px 20px 0 0;
+    }
+
+    @include desktop {
+      top: 393px;
+    }
+  }
+
+  .swiper-pagination::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    right: -10px;
+    bottom: 0;
+    background-image: url("/__spritemap#sprite-angle-bottom-view");
+    background-repeat: no-repeat;
+    z-index: 2;
+
+    @include tablet {
+      width: 20px;
+      height: 20px;
+      right: -20px;
+    }
+  }
+
+  .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    top: 201px;
+    bottom: auto;
+    left: 15px;
+
+    @include tablet {
+      top: 647px;
+      left: 45px;
+    }
+
+    @include desktop {
+      top: 393px;
+      left: 100px;
+    }
+  }
+
+  .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0;
+  }
+
+  .swiper-pagination--hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0s, visibility 0s;
+  }
+
+  .swiper-pagination-bullet {
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+    border: 2px solid $primary;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    opacity: 1;
+    transition: background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+
+    @include tablet {
+      width: 12px;
+      height: 12px;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgba(49, 109, 194, 0.7);
+        border: 2px solid $white;
+      }
+    }
+
+    &:focus-visible {
+      outline: none;
+      border-color: $primary;
+      background-color: $primary;
+    }
+
+    &:active {
+      background-color: $state-active;
+      border-color: $state-active;
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $state-active;
+    border-color: $state-active;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: $state-active;
+      }
+    }
+  }
+}

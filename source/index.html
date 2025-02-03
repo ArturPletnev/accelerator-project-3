@@ -29,10 +29,9 @@
                   <a class="nav__link" href="#">О проекте</a>
                 </li>
                 <li class="nav__item nav__item--submenu">
-                  <button class="nav__link button nav__link-button" type="button">Программы</button>
-                  <ul class="nav__submenu reset-list">
+                  <button class="nav__link nav__link-button" type="button">Программы</button>
+                  <ul class="nav__submenu">
                     <li class="nav__subitem">
-                      <!-- Состояние активной ссылки в подменю - класс nav__sublink-active ниже -->
                       <a class="nav__sublink" href="#">Стажировки</a>
                     </li>
                     <li class="nav__subitem">
@@ -53,8 +52,8 @@
                   <a class="nav__link" href="#">Отзывы</a>
                 </li>
                 <li class="nav__item nav__item--submenu">
-                  <button class="nav__link button nav__link-button" type="button">Новости</button>
-                  <ul class="nav__submenu reset-list">
+                  <button class="nav__link nav__link-button" type="button">Новости</button>
+                  <ul class="nav__submenu">
                     <li class="nav__subitem">
                       <a class="nav__sublink" href="#">Волонтёрство</a>
                     </li>
@@ -78,16 +77,15 @@
         </header>
         <div class="swiper-container">
           <div class="swiper-hero">
-            <ul class="swiper-wrapper hero__list reset-list">
+            <ul class="swiper-wrapper hero__list">
               <li class="swiper-slide hero__item">
                 <div class="hero-card hero-card--internships">
-                  <div class="container hero-card__descr">
-                    <h2 class="title hero-card__title">Глобальный профессиональный опыт обучения за рубежом</h2>
+                  <div class="hero-card__description">
+                    <h2 class="hero-card__title">Глобальный профессиональный опыт обучения за рубежом</h2>
                     <div class="hero-card__bottom-wrapper">
                       <p>Погрузитесь в&nbsp;академическую программу, проходя практику в разных городах, ощущая настоящий студенческий стиль жизни!</p>
                       <div class="hero-card__angle">
-                        <!-- Состояние выключенной кнопки - добавить класс button__disabled ниже для ссылки -->
-                        <a class="hero-card__link button" href="#">Подробнее</a>
+                        <a class="hero-card__link" href="#">Подробнее</a>
                       </div>
                     </div>
                   </div>
@@ -95,7 +93,7 @@
               </li>
               <li class="swiper-slide hero__item">
                 <div class="hero-card hero-card--volunteer">
-                  <div class="container hero-card__descr">
+                  <div class="hero-card__description">
                     <h2 class="title hero-card__title">Волонтёрские программы — внесите свой вклад в общество</h2>
                     <div class="hero-card__bottom-wrapper">
                       <p>Возможности для преподавания, органического сельского хозяйства, устойчивого образа жизни и другое.</p>
@@ -108,7 +106,7 @@
               </li>
               <li class="swiper-slide hero__item">
                 <div class="hero-card hero-card--abroad">
-                  <div class="container hero-card__descr">
+                  <div class="hero-card__description">
                     <h2 class="title hero-card__title">Программы стажировок в крупнейших компаниях мира</h2>
                     <div class="hero-card__bottom-wrapper">
                       <p>Получите незаменимый опыт работы в ведущих мировых компаниях и государственных организациях.</p>
@@ -120,22 +118,22 @@
                 </div>
               </li>
             </ul>
-            <div class="container">
+            <div class="hero__pagination">
               <div class="swiper-pagination"></div>
             </div>
           </div>
         </div>
       </section>
       <section class="about" data-test="about" id="about">
-        <div class="container about__container">
+        <div class="about__container">
           <div class="about__description">
-            <h2 class="title about__title">О проекте «Стажировка»</h2>
+            <h2 class="about__title">О проекте «Стажировка»</h2>
             <p>«Стажировка» — совместный проект правительств и волонтёрских бригад.</p>
             <h3>Наша цель</h3>
             <p>Наша деятельность направлена на повышение квалификации молодых специалистов на ранних и средних стадиях карьеры, предоставляя им инструменты для решения сложных проблем, с которыми сталкиваются в мире. Цель центра — наделить этих людей способностью инициировать значимые изменения.</p>
-            <button class="about__button button button--primary" type="button" aria-label="Открыть модальное окно «Свяжитесь с нами».">Подробнее о проекте</button>
+            <button class="about__button" type="button" aria-label="Открыть модальное окно «Свяжитесь с нами».">Подробнее о проекте</button>
           </div>
-          <ul class="about__list reset-list">
+          <ul class="about__list">
             <li class="about__item">
               <span>Более 250 программ</span>
               <p>учебных и рабочих, разной длительностью от 3 месяцев до 1 года</p>
