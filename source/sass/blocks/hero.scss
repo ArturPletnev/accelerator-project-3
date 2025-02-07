@@ -3,3 +3,9 @@
 
   display: flex;
 }
+
+.hero__pagination {
+  @include container;
+
+  position: relative;
+}

@@ -1,3 +1,99 @@
+.swiper-container {
+  position: relative;
+  overflow: hidden;
+
+  .swiper-horizontal > .swiper-scrollbar,
+  .swiper-scrollbar.swiper-scrollbar-horizontal {
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #abc0db;
+
+    @include tablet {
+      max-width: 562px;
+      bottom: 5px;
+    }
+
+    @include desktop {
+      max-width: 1136px;
+      bottom: 4px;
+    }
+  }
+
+  .swiper-scrollbar-drag {
+    background-color: $primary;
+    opacity: 1;
+  }
+
+  .swiper-button-prev {
+    margin-left: 30px;
+    transform: rotate(-180deg);
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    left: 50%;
+    font-size: inherit;
+    background-color: $primary;
+    mask-image: url("/__spritemap#sprite-arrow-link-view");
+    mask-repeat: no-repeat;
+    mask-size: 8px 8px;
+    mask-position: center;
+    transform: rotate(45deg);
+  }
+
+  .swiper-button-prev.swiper-button-disabled,
+  .swiper-button-next.swiper-button-disabled {
+    opacity: 1;
+    color: $state-disabled;
+  }
+
+  .swiper-button-prev.swiper-button-disabled::after,
+  .swiper-button-next.swiper-button-disabled::after {
+    background-color: $state-disabled;
+  }
+}
+
+.swiper-container .swiper-button-prev,
+.swiper-container .swiper-button-next {
+  padding: 0;
+  width: 22px;
+  min-width: 22px;
+  max-width: 22px;
+  height: 22px;
+  min-height: 22px;
+  max-height: 22px;
+  top: 20px;
+  background-color: transparent;
+  border: none;
+  order: -1;
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-radius: 30px;
+    background-color: $white;
+  }
+
+  &:active {
+    background-color: $white;
+    border-radius: 30px;
+
+    &::after {
+      opacity: 0.7;
+    }
+  }
+}
+
+
 .swiper-hero {
   width: 100%;
   min-height: 568px;
@@ -65,24 +161,20 @@
 
   .swiper-pagination-fraction,
   .swiper-pagination-custom,
-  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-horizontal>.swiper-pagination-bullets,
   .swiper-pagination-bullets.swiper-pagination-horizontal {
-    top: 201px;
-    bottom: auto;
-    left: 15px;
+    bottom: 339px;
 
     @include tablet {
-      top: 647px;
-      left: 45px;
+      bottom: 337px;
     }
 
     @include desktop {
-      top: 393px;
-      left: 100px;
+      bottom: 366px;
     }
   }
 
-  .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
   .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0;
   }
@@ -139,6 +231,89 @@
       &:hover {
         background-color: $state-active;
       }
+    }
+  }
+}
+
+.swiper-programs {
+  padding: 0;
+  width: 100%;
+  min-height: 400px;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: 140px 140px;
+  gap: 0 10px;
+
+  @include tablet {
+    padding: 0 0 64px;
+    display: block;
+  }
+
+  .swiper-slide {
+    min-width: 290px;
+    max-width: 290px;
+    min-height: 400px;
+
+    @include tablet {
+      min-width: 324px;
+      max-width: 324px;
+      min-height: 420px;
+    }
+
+    @include desktop {
+      min-width: 392px;
+      max-width: 392px;
+    }
+  }
+
+  .swiper-navigation-wrapper {
+    margin: 0 0 0 auto;
+    padding: 22px 0 0;
+    min-width: 52px;
+    max-width: 52px;
+    min-height: 22px;
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+
+    @include tablet {
+      margin: 0;
+      padding: 20px 0 0;
+      position: absolute;
+      bottom: 0;
+      right: 45px;
+      gap: 0;
+    }
+
+    @include desktop {
+      min-width: 54px;
+      max-width: 54px;
+      right: 0;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    margin-left: 8px;
+    position: static;
+
+    @include tablet {
+      margin-left: 10px;
+    }
+  }
+
+  .swiper-scrollbar {
+    display: none;
+
+    @include tablet {
+      display: block;
+      transform: translateY(-7px);
+    }
+
+    @include desktop {
+      transform: translateY(-8px);
     }
   }
 }

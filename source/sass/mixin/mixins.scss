@@ -112,6 +112,7 @@
   line-height: 18px;
   text-align: left;
   margin: 0;
+  color: $primary;
 
   @include tablet {
     font-size: 20px;
@@ -200,6 +201,7 @@
   font-weight: 400;
   line-height: 14px;
   text-align: left;
+  margin: 0;
 
   @include tablet {
     font-size: 14px;
@@ -378,6 +380,29 @@
     }
   }
 }
+
+@mixin button-circle {
+  padding: 10px;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border-radius: 44px;
+  background-color: #316dc2;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: $white;
+    mask-image: url("/__spritemap#sprite-arrow-link-view");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 8px 8px;
+  }
+}
+
 
 @mixin container {
   margin: 0 auto;

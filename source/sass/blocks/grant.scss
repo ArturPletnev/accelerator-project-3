@@ -1,0 +1,164 @@
+.grant {
+  padding: 72px 0 70px;
+  background-color: $primary;
+  counter-reset: grant-counter;
+
+  p {
+    @include text-regular;
+
+    color: $beige;
+    margin-bottom: 30px;
+
+    @include tablet {
+      max-width: 498px;
+      margin-bottom: 40px;
+    }
+
+    @include desktop {
+      margin: 0;
+    }
+  }
+
+  @include tablet {
+    padding: 100px 0;
+  }
+
+  @include desktop {
+    padding: 120px 0 106px;
+  }
+}
+
+.grant__container {
+  @include container;
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px 32px;
+  }
+}
+
+.grant__title {
+  @include h2;
+
+  color: $white;
+  margin-bottom: 13px;
+
+  @include tablet {
+    margin-bottom: 30px;
+  }
+}
+
+.grant__image-wrapper {
+  margin-bottom: 38px;
+
+  @include tablet {
+    margin-bottom: 48px;
+  }
+
+  @include desktop {
+    grid-column: 1;
+  }
+}
+
+.grant__subtitle {
+  @include h3;
+
+  margin-bottom: 30px;
+  color: $white;
+
+  @include tablet {
+    margin-bottom: 45px;
+  }
+
+  @include desktop {
+    padding-top: 10px;
+    margin-bottom: 40px;
+    max-width: 373px;
+  }
+}
+
+.grant__conditions {
+  @include desktop {
+    grid-column: 2;
+    grid-row: -1 / -3;
+  }
+}
+
+.grant__list {
+  @include list;
+
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 48px;
+    padding-left: 20px;
+  }
+
+  @include desktop {
+    margin: 0;
+    padding: 15px 20px 14px;
+    max-width: 518px;
+    display: flex;
+    gap: 23px;
+  }
+}
+
+.grant__item {
+  padding: 24px 25px;
+  position: relative;
+  font-size: 14px;
+  line-height: 20px;
+  color: $beige;
+  border: 1px solid $beige;
+  border-radius: 16px;
+  counter-increment: grant-counter;
+
+  &::before {
+    content: counter(grant-counter);
+    padding-left: 8px;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: -6px;
+    left: -20px;
+    align-content: center;
+    background-color: $primary;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    text-align: center;
+    color: $white;
+
+    @include tablet {
+      padding: 0;
+      width: 42px;
+      height: 42px;
+      top: -17px;
+      left: -21px;
+      font-size: 22px;
+      letter-spacing: 0.01em;
+    }
+
+    @include desktop {
+      top: -16px;
+      left: -21.6px;
+    }
+  }
+
+  @include tablet {
+    padding: 30px 25px;
+    font-size: 16px;
+  }
+
+  @include desktop {
+    padding: 30px 25px;
+    min-width: 478px;
+    line-height: 26px;
+  }
+}

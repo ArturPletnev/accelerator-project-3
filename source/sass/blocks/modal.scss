@@ -1,0 +1,104 @@
+.modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: $dark-overlay;
+  z-index: 777;
+  cursor: pointer;
+
+  &--open {
+    display: block;
+  }
+}
+
+.modal__form {
+  margin: auto 0;
+  padding: 38px 15px 40px;
+  position: relative;
+  width: 290px;
+  background-color: $white;
+  border-radius: 16px;
+  cursor: default;
+
+  @include tablet {
+    margin: 204px auto 0;
+    padding: 56px 80px 60px;
+    max-width: 510px;
+  }
+
+  @include desktop {
+    margin: 90px auto 0;
+    padding: 53px 80px 60px;
+  }
+}
+
+.modal__close-button {
+  @include buttons;
+
+  padding: 20px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 16px;
+  height: 16px;
+  background-color: $primary;
+  mask-image: url("/__spritemap#sprite-modal-close-view");
+  mask-repeat: no-repeat;
+  mask-size: 14px 14px;
+  mask-position: center center;
+
+  @include tablet {
+    width: 20px;
+    height: 20px;
+    top: 21px;
+    right: 21px;
+    mask-size: 20px 20px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &:focus-visible {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.modal__title {
+  @include h3;
+
+  margin-bottom: 12px;
+
+  @include tablet {
+    margin-bottom: 16px;
+  }
+
+  @include desktop {
+    margin-bottom: 14px;
+  }
+}
+
+.modal__text {
+  @include text-regular;
+
+  margin: 0 auto 25px;
+  max-width: 220px;
+
+  @include tablet {
+    margin: 0 auto 33px;
+    max-width: 350px;
+  }
+
+  @include desktop {
+    margin: 0 auto 29px;
+  }
+}
