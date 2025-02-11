@@ -1,0 +1,266 @@
+.accordion {
+  padding: 22px 15px;
+  min-height: 84px;
+  border: 2px solid $primary;
+  border-radius: 14px;
+  cursor: pointer;
+  background-color: transparent;
+
+  @include tablet {
+    padding: 37px 30px;
+    min-height: 104px;
+    align-content: center;
+    border-radius: 16px;
+  }
+
+  @include desktop {
+    padding: 43px 40px;
+    min-height: 124px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  p {
+    @include text-small;
+
+    padding: 0;
+    max-height: 0;
+    color: $beige;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    will-change: max-height;
+    box-sizing: content-box;
+
+    @include tablet {
+      max-width: 600px;
+      font-size: 16px;
+    }
+
+    @include desktop {
+      max-width: 914px;
+      line-height: 26px;
+    }
+  }
+
+  span {
+    @include h4;
+
+    max-width: 187px;
+    display: block;
+
+    @include tablet {
+      max-width: 485px;
+    }
+
+    @include desktop {
+      max-width: 775px;
+    }
+  }
+
+  &:nth-child(4) {
+    @include tablet {
+      span {
+        max-width: 445px;
+      }
+    }
+
+    @include desktop {
+      span {
+        max-width: 775px;
+      }
+    }
+  }
+
+  &:nth-child(n+4) {
+    padding: 18px 15px 21px;
+
+    @include tablet {
+      padding: 30px;
+
+      .accordion__icon {
+        top: 0;
+        transform: none;
+      }
+    }
+
+    @include desktop {
+      padding: 40px;
+    }
+  }
+
+  &:nth-child(n+4).accordion--open {
+    @include desktop {
+      padding: 40px 40px 38px;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    &:has(:focus-visible) {
+      background-color: $white;
+
+      .accordion__icon {
+        background-color: $white;
+        box-shadow: 0 0 0 1px $primary;
+      }
+
+      .accordion__icon::before,
+      .accordion__icon::after {
+        background-color: $primary;
+      }
+    }
+  }
+
+  &:active {
+    span {
+      color: $state-active;
+    }
+
+    .accordion__icon {
+      background-color: $state-active;
+    }
+
+    .accordion__icon::before,
+    .accordion__icon::after {
+      background-color: $white;
+    }
+  }
+}
+
+.accordion.accordion--open {
+  background-color: $primary;
+
+  @include tablet {
+    padding: 37px 30px 30px;
+  }
+
+  @include desktop {
+    padding: 43px 40px 38px;
+    min-height: 222px;
+  }
+
+  span {
+    color: $white;
+  }
+
+  p {
+    margin-top: 22px;
+    color: $beige;
+    opacity: 1;
+
+    @include tablet {
+      margin-top: 27px;
+    }
+
+    @include desktop {
+      margin-top: 23px;
+    }
+  }
+}
+
+.accordion:nth-child(3) {
+  @include desktop {
+    padding: 43px 40px 38px;
+  }
+}
+
+.accordion.accordion--open:hover,
+.accordion.accordion--open:focus-within,
+.accordion.accordion--open .accordion:has(.accordion__control:focus-visible) {
+  outline: none;
+
+  .accordion__icon {
+    background-color: $primary;
+    box-shadow: 0 0 0 1px $white;
+  }
+}
+
+.accordion.accordion--open:hover .accordion__icon::before,
+.accordion.accordion--open:hover .accordion__icon::after,
+.accordion.accordion--open:focus-within .accordion__icon::before,
+.accordion.accordion--open:focus-within .accordion__icon::after,
+.accordion.accordion--open .accordion:has(.accordion__control:focus-visible) .accordion__icon::before,
+.accordion.accordion--open .accordion:has(.accordion__control:focus-visible) .accordion__icon::after {
+  background-color: $white;
+}
+
+.accordion.accordion--open:active {
+  background-color: $state-active;
+
+  .accordion__icon {
+    background-color: $white;
+  }
+}
+
+.accordion.accordion--open:active .accordion__icon::before,
+.accordion.accordion--open:active .accordion__icon::after {
+  background-color: $state-active;
+}
+
+
+.accordion__control {
+  @include buttons;
+
+  padding: 0;
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  text-align: left;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: none;
+    background-color: transparent;
+  }
+}
+
+.accordion__icon {
+  padding: 10px;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  right: 0;
+  display: inline-block;
+  transform: translateY(-50%);
+  border-radius: 30px;
+  background-color: $primary;
+  transition: transform 0.3s ease-out;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 1px;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 1px;
+    height: 18px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+  }
+}
+
+.accordion--open .accordion__icon {
+  background-color: $white;
+
+  &::before {
+    background-color: $primary;
+  }
+
+  &::after {
+    width: 0;
+  }
+}

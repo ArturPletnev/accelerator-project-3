@@ -1,0 +1,43 @@
+.faq {
+  padding: 51px 0 49px;
+
+  @include tablet {
+    padding: 50px 0;
+  }
+
+  @include desktop {
+    padding: 71px 0 60px;
+  }
+}
+
+.fag__container {
+  @include container;
+}
+
+.faq__title {
+  @include h2;
+
+  margin-bottom: 29px;
+  text-align: center;
+
+  @include tablet {
+    margin-bottom: 40px;
+  }
+
+  @include desktop {
+    margin-bottom: 71px;
+  }
+}
+
+.faq__list {
+  @include list;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @include tablet {
+    margin: 0 auto;
+    max-width: 1028px;
+  }
+}

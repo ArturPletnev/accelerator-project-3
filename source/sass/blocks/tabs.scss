@@ -1,0 +1,153 @@
+.tabs {
+  @include list;
+
+  margin-bottom: 24px;
+  display: flex;
+  gap: 12px;
+  padding-left: 15px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+
+  @media (width >= 592px) {
+    justify-content: center;
+  }
+
+  @include tablet {
+    @include container;
+
+    margin-bottom: 30px;
+    padding-left: 2px;
+    justify-content: normal;
+    gap: 5px;
+  }
+
+  @include desktop {
+    margin-bottom: 40px;
+    padding: 0 260px;
+    gap: 10px;
+  }
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs__button {
+  @include buttons;
+
+  padding: 11px 12px 9px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: center;
+  color: $primary;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  transition: opacity 0.3s, border-color 0.3s;
+
+  @include tablet {
+    padding: 14px 18px 14px 23px;
+    font-size: 14px;
+  }
+
+  @include desktop {
+    padding: 16px 35px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    background-color: $white;
+    opacity: 1;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  &--active {
+    opacity: 1;
+    border-color: $primary;
+    border-radius: 20px;
+
+    @include tablet {
+      padding: 14px 18px 14px 23px;
+    }
+
+    @include desktop {
+      padding: 16px 35px;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+.tabs__item:nth-child(1) {
+  .tabs__button {
+    padding: 11px 15px 9px 14px;
+
+    @include tablet {
+      padding: 14px 20px;
+    }
+
+    @include desktop {
+      padding: 14px 33px;
+    }
+  }
+
+  .tabs__button--active {
+    @include tablet {
+      padding: 14px 20px;
+    }
+
+    @include desktop {
+      padding: 14px 33px;
+    }
+  }
+}
+
+.tabs__item:nth-child(2) {
+  @include desktop {
+    .tabs__button {
+      padding: 14px 21px;
+    }
+  }
+}
+
+.tabs__item:nth-child(3) {
+  @include desktop {
+    .tabs__button {
+      padding: 14px 9px;
+    }
+  }
+}
+
+.tabs__item:nth-child(4) {
+  @include desktop {
+    .tabs__button {
+      padding: 14px 47px;
+    }
+  }
+}
+
+.tabs__item:nth-child(5) {
+  @include desktop {
+    .tabs__button {
+      padding: 14px 5px;
+    }
+  }
+}
