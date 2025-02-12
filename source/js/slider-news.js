@@ -1,10 +1,5 @@
-import {
-  Swiper
-} from 'swiper';
-import {
-  Grid,
-  Pagination
-} from 'swiper/modules';
+import { Swiper } from 'swiper';
+import { Grid, Pagination } from 'swiper/modules';
 
 const initNewsSlider = () => {
   const sliderNewsEl = document.querySelector('.swiper-news');
@@ -27,60 +22,69 @@ const initNewsSlider = () => {
         const activeIndex = this.activeIndex;
 
         let start = 0;
-        let end = Math.min(4, totalSlides);
+        let end = 4; // Показать 4 кнопки по умолчанию
 
+        // Логика отображения кнопок
         if (totalSlides > 4) {
-          if (activeIndex < 3) {
+          if (activeIndex <= 2) {
             start = 0;
-            end = 4;
-          } else if (activeIndex >= totalSlides - 1) {
-            start = totalSlides - 4;
+            end = 4; // Слайды 1, 2, 3, 4
+          } else if (activeIndex >= totalSlides - 2) {
+            start = totalSlides - 4; // Последние 4 слайда
             end = totalSlides;
           } else {
-            start = activeIndex - 2;
-            end = activeIndex + 2;
-            if (end > totalSlides) {
-              end = totalSlides;
-            }
-
-          }
-
-          if (start < 0) {
-            start = 0;
-            end = Math.min(4, totalSlides);
+            start = activeIndex - 2; // Смещение для центральной кнопки
+            end = activeIndex + 2; // Обеспечить показывание одного следующего слайда
           }
         }
 
-        const bulletIndex = index + 1;
+        // Проверка индекса и создание кнопки пагинации
+        if (index >= start && index < end) {
+          const button = document.createElement('button');
+          button.classList.add(className);
+          button.type = 'button';
+          button.ariaLabel = `Перейти на слайд ${index + 1}`;
+          button.textContent = index + 1;
 
-        if (bulletIndex >= (start + 1) && bulletIndex <= end) {
-          return `<button class="${className}" type="button" aria-label="Перейти на слайд ${bulletIndex}">${bulletIndex}</button>`;
+          if (index === activeIndex) {
+            button.classList.add('swiper-pagination-bullet-active');
+          }
+
+          button.addEventListener('click', () => {
+            this.slideTo(index);
+          });
+
+          return button.outerHTML;
         }
 
         return '';
       },
     },
-
+    on: {
+      slideChange: function () {
+        // Обновляем пагинацию при изменении слайда
+        this.pagination.render();
+      },
+    },
     breakpoints: {
       320: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
+        slidesPerView: 1,
+        slidesPerGroup: 1,
       },
       768: {
         spaceBetween: 30,
-        slidesPerGroup: 4,
-        slidesPerView: 4,
+        slidesPerGroup: 1,
+        slidesPerView: 1,
       },
       1440: {
         spaceBetween: 32,
-        slidesPerGroup: 3,
-        allowTouchMove: false
-      }
+        slidesPerGroup: 1,
+        allowTouchMove: false,
+      },
     },
   });
+
   swiperNews.update();
 };
 
-export {
-  initNewsSlider
-};
+export { initNewsSlider };
