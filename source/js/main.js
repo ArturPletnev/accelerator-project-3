@@ -5,6 +5,7 @@ import { initializeModalHandler } from './modal';
 import { initProgramsSlider } from './slider-programs';
 import { initNewsSlider } from './slider-news';
 import { accordionHandler } from './fag-accordion';
+import { initReviewsSlider } from './slider-reviews';
 
 toggleBurgerHandler(); // Открытие меню в Header
 navSubmenuHandler(); // Открытие аккордионов в меню навигации
@@ -13,3 +14,4 @@ initializeModalHandler(); // Модальное окно в блоке About
 initProgramsSlider(); // Слайдер в блоке Programs
 initNewsSlider(); // Слайдер в блоке News
 accordionHandler(); // Открытие-закрытие аккордеонов в блоке Fag
+initReviewsSlider(); // Слайдер в блоке Reviews

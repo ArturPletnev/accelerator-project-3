@@ -1,0 +1,190 @@
+.select {
+  position: relative;
+}
+
+.select__button {
+  margin-bottom: 7px;
+  padding: 17px 50px 17px 20px;
+  width: 100%;
+  max-width: 260px;
+  min-height: 52px;
+  position: relative;
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  text-align: left;
+  color: $beige;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: $white;
+    mask-image: url("/__spritemap#sprite-arrow-down-view");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    transition: transform 0.3s ease;
+
+    @include tablet {
+      transform: translateY(-44%);
+    }
+
+    @include desktop {
+      transform: translateY(-50%);
+    }
+  }
+
+  @include tablet {
+    margin: 0;
+    max-width: none;
+    min-height: 52px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: $white;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: $white;
+
+    &::after {
+      transform: rotate(-180deg) translateY(50%);
+    }
+  }
+
+  &:active {
+    &::after {
+      transform: rotate(-180deg) translateY(50%);
+    }
+  }
+}
+
+.select__button--open {
+  border-color: $white;
+}
+
+.select__button--rotated::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.select--dark .select__button {
+  min-height: 44px;
+  color: $text;
+  border-color: rgba(72, 72, 72, 0.3);
+  transition: color 0.3s, border-color 0.3s;
+
+  @include tablet {
+    margin-top: 2px;
+    min-height: 50px;
+  }
+
+  &::after {
+    color: $text;
+    background-color: $text;
+    mask-size: 16px 9px;
+    transition: transform 0.3s;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: $text;
+      border-color: $text;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    color: $text;
+    border-color: $text;
+
+    &::after {
+      transform: rotate(-180deg) translateY(50%);
+    }
+  }
+
+  &:active {
+    color: $text;
+    border-color: $text;
+
+    &::after {
+      transform: rotate(-180deg) translateY(50%);
+    }
+  }
+}
+
+.select--dark .select__button--open {
+  border-color: $text;
+}
+
+.select--dark .select__list {
+  padding: 0;
+  border: 1px solid $text;
+  border-radius: 8px;
+}
+
+.select__list {
+  @include list;
+
+  display: none;
+  padding: 1px;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  border-radius: 8px;
+  background-color: $white;
+  z-index: 2;
+}
+
+.select__list--visible {
+  display: block;
+}
+
+.select__item {
+  padding: 17px 20px;
+  font-size: 14px;
+  line-height: 100%;
+  color: $text;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &:active {
+    color: $white;
+    background-color: $primary;
+  }
+
+  &:focus-visible {
+    outline: none;
+    color: $white;
+    background-color: $primary;
+  }
+
+  &:first-child {
+    border-radius: 8px 8px 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 8px 8px;
+  }
+}
+
+.select__input {
+  display: none;
+}

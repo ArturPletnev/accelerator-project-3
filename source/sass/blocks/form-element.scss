@@ -1,0 +1,419 @@
+.form-element {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @include tablet {
+    max-width: 362px;
+  }
+}
+
+.form-element--dark {
+  gap: 8px;
+
+  @include tablet {
+    gap: 15px;
+  }
+
+  @include desktop {
+    gap: 12px;
+  }
+}
+
+.form-element--dark .form-element__label {
+  color: rgba(72, 72, 72, 0.8);
+  font-size: 14px;
+  line-height: 100%;
+
+  @include desktop {
+    line-height: 18px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: $text;
+    }
+
+    &:has(+ .form-element__field:focus-visible),
+    &:has(+ .form-element__field:hover) {
+      color: $text;
+    }
+  }
+
+  &:active {
+    color: $text;
+
+    .form-element__field {
+      border-color: $text;
+    }
+  }
+}
+
+.form-element--dark .form-element__field {
+  margin-bottom: 7px;
+  font-family: $font-family;
+  border-color: rgba(72, 72, 72, 0.3);
+  color: $text;
+  min-height: 44px;
+
+  @include tablet {
+    min-height: 50px;
+  }
+
+  @include desktop {
+    margin-bottom: 8px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: $text;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: $text;
+  }
+
+  &:active {
+    border-color: $text;
+  }
+
+  &:disabled {
+    background-color: rgba(169, 175, 183, 0.2);
+    border-color: rgba(169, 175, 183, 0.5);
+    pointer-events: none;
+    opacity: 0.6;
+  }
+}
+
+.form-element__label {
+  @include text-xsmall;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #cbd4e1;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:has(.form-element__field:focus-visible) {
+    color: $beige;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: $beige;
+    }
+
+    &:has(+ .form-element__field:focus-visible),
+    &:has(+ .form-element__field:hover) {
+      color: $beige;
+    }
+  }
+
+  &:active {
+    color: $beige;
+
+    .form-element__field {
+      border-color: $white;
+    }
+  }
+}
+
+.form-element__label--opened {
+  color: $beige;
+}
+
+.form-element__select-label {
+  @media (hover: hover) {
+    &:hover,
+    &:focus-within {
+      color: #cbd4e1;
+
+      .form-element__field {
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}
+
+.form-element--light-error {
+  outline: none;
+  border: 1px solid $state-error;
+  background-color: rgba(255, 94, 102, 0.2);
+
+  &:invalid:focus-visible {
+    border-color: $state-error;
+  }
+}
+
+.form-element--dark .form-element--dark-error {
+  outline: none;
+  border: 1px solid $state-error;
+  background-color: rgba(255, 94, 102, 0.2);
+}
+
+.form-element__field {
+  @include field;
+
+  margin-bottom: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  line-height: 100%;
+  color: $beige;
+  transition: color 0.3s ease, border-color 0.3s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      outline: none;
+      border-color: $white;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: $white;
+  }
+
+  &:disabled {
+    background-color: rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+  }
+}
+
+.form-element__textarea {
+  width: 100%;
+  min-height: 94px;
+  font-family: $font-family;
+  font-size: 14px;
+  line-height: 100%;
+  resize: none;
+
+  @include tablet {
+    min-height: 88px;
+  }
+
+  @include desktop {
+    margin: 0 0 5px;
+    min-height: 90px;
+  }
+}
+
+.form-element__textarea::-webkit-resizer {
+  display: none;
+}
+
+.form-element__label--checkbox {
+  max-width: 240px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+  line-height: 14px;
+  color: $white;
+  opacity: 1;
+
+  @include tablet {
+    max-width: 100%;
+    line-height: 100%;
+  }
+}
+
+.form-element__button {
+  @include buttons;
+  @include button-primary;
+
+  margin: 7px 0 0;
+  padding: 6px 58px 5px 20px;
+  max-width: 260px;
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+  color: $white;
+  border-color: $white;
+
+  @include tablet {
+    margin: 20px 0 0;
+    padding: 6px 70px 5px 20px;
+    max-width: 352px;
+
+    &::before {
+      right: 23px;
+    }
+  }
+
+  @include desktop {
+    margin: 21px 0 0;
+  }
+
+  &::after {
+    background-color: $white;
+  }
+
+  &::before {
+    background-color: $primary;
+    transition: transform 0.3s ease;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: $white;
+      color: $primary;
+
+      &::before {
+        background-color: $white;
+        transform: rotate(45deg) translate(0, -5px);
+      }
+
+      &::after {
+        background-color: $primary;
+      }
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    background-color: transparent;
+    color: $white;
+    border-color: $white;
+
+    &::before {
+      background-color: $primary;
+      transform: rotate(45deg) translate(0, -5px);
+    }
+
+    &::after {
+      background-color: $white;
+    }
+  }
+
+  &:active {
+    background-color: $white;
+    color: rgba(49, 109, 194, 0.7);
+
+    &::before {
+      background-color: $white;
+      opacity: 0.7;
+      transform: rotate(45deg) translate(0, -5px);
+    }
+
+    &::after {
+      background-color: $primary;
+    }
+  }
+
+  &:disabled {
+    color: $state-disabled;
+    border-color: $state-disabled;
+
+    &::before {
+      background-color: $white;
+      opacity: 0.6;
+    }
+
+    &::after {
+      background-color: $state-disabled;
+    }
+  }
+}
+
+.form-element__modal-button {
+  @include buttons;
+  @include button-primary;
+
+  margin-top: 17px;
+  padding: 14px 68px 14px 30px;
+  min-height: 42px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: $primary;
+  background-color: $white;
+
+  @include tablet {
+    margin-top: 10px;
+    min-height: 54px;
+    min-width: 194px;
+    max-width: 194px;
+    align-self: center;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  @include desktop {
+    margin-top: 11px;
+  }
+
+  &::before {
+    width: 10px;
+    height: 10px;
+  }
+
+  &::after {
+    width: 34px;
+    height: 34px;
+
+    @include tablet {
+      width: 46px;
+      height: 46px;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: $primary;
+      color: $white;
+      background-color: $primary;
+
+      &::before {
+        background-color: $primary;
+        right: 20px;
+
+        @include tablet {
+          right: 25px;
+        }
+      }
+
+      &::after {
+        background-color: $white;
+      }
+    }
+  }
+
+  &:active {
+    background-color: $primary;
+    border-color: initial;
+    color: rgba(255, 255, 255, 0.7);
+
+    &::before {
+      background-color: rgba(49, 109, 194, 0.7);
+      right: 20px;
+
+      @include tablet {
+        right: 25px;
+      }
+    }
+
+    &::after {
+      background-color: $white;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: $primary;
+    color: $white;
+    background-color: $primary;
+
+    &::before {
+      background-color: $primary;
+    }
+
+    &::after {
+      background-color: $white;
+    }
+  }
+}

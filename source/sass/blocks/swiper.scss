@@ -4,12 +4,14 @@
 
   .swiper-horizontal > .swiper-scrollbar,
   .swiper-scrollbar.swiper-scrollbar-horizontal {
+    display: none;
     height: 2px;
     bottom: 0;
     left: 0;
     background-color: #abc0db;
 
     @include tablet {
+      display: block;
       max-width: 562px;
       bottom: 5px;
     }
@@ -545,5 +547,101 @@
 .swiper-fade {
   .swiper-slide {
     transition-property: opacity;
+  }
+}
+
+.swiper-reviews {
+  width: 100%;
+  min-height: 472px;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 140px);
+  gap: 0 10px;
+
+  @include tablet {
+    padding: 0 0 52px;
+    min-height: 569px;
+
+    .swiper-slide {
+      width: 80%;
+      min-width: 560px;
+      max-width: 560px;
+      min-height: 417px;
+    }
+
+    .swiper-slide:nth-child(2n) {
+      width: 60%;
+    }
+
+    .swiper-slide:nth-child(3n) {
+      width: 40%;
+    }
+  }
+
+  @include desktop {
+    padding: 0 0 64px;
+    min-height: 483px;
+
+    .swiper-slide {
+      min-width: 604px;
+      min-height: 483px;
+    }
+
+    .swiper-slide:nth-child(2n) {
+      width: initial;
+    }
+
+    .swiper-slide:nth-child(3n) {
+      width: initial;
+    }
+  }
+
+  .swiper-horizontal > .swiper-scrollbar,
+  .swiper-scrollbar.swiper-scrollbar-horizontal {
+    @include tablet {
+      bottom: 10px;
+    }
+
+    @include desktop {
+      bottom: 12px;
+    }
+  }
+
+  .swiper-navigation-wrapper {
+    margin: 0 0 0 auto;
+    padding: 22px 0 0;
+    min-width: 52px;
+    max-width: 52px;
+    min-height: 22px;
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+
+    @include tablet {
+      margin: 0;
+      padding: 20px 0 0;
+      position: absolute;
+      right: 45px;
+      bottom: 0;
+      gap: 0;
+    }
+
+    @include desktop {
+      min-width: 54px;
+      max-width: 54px;
+      right: 0;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    margin-left: 8px;
+    position: static;
+
+    @include tablet {
+      margin-left: 10px;
+    }
   }
 }

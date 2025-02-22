@@ -3,6 +3,8 @@ import { Grid, Pagination } from 'swiper/modules';
 
 const initNewsSlider = () => {
   const sliderNewsEl = document.querySelector('.swiper-news');
+
+  // Инициализация Swiper
   const swiperNews = new Swiper(sliderNewsEl, {
     modules: [Grid, Pagination],
     slidesPerView: 'auto',
@@ -18,11 +20,11 @@ const initNewsSlider = () => {
       el: '.swiper-pagination',
       clickable: true,
       renderBullet: function (index, className) {
-        const totalSlides = this.slides.length;
+        const totalSlides = this.slides.length; // Общее количество слайдов
         const activeIndex = this.activeIndex;
 
         let start = 0;
-        let end = 4; // Показать 4 кнопки по умолчанию
+        let end = Math.min(totalSlides, 4); // Показать 4 кнопки по умолчанию
 
         // Логика отображения кнопок
         if (totalSlides > 4) {
@@ -36,6 +38,8 @@ const initNewsSlider = () => {
             start = activeIndex - 2; // Смещение для центральной кнопки
             end = activeIndex + 2; // Обеспечить показывание одного следующего слайда
           }
+        } else {
+          end = totalSlides; // Если less than 4 slides, показываем все
         }
 
         // Проверка индекса и создание кнопки пагинации
@@ -46,18 +50,18 @@ const initNewsSlider = () => {
           button.ariaLabel = `Перейти на слайд ${index + 1}`;
           button.textContent = index + 1;
 
-          if (index === activeIndex) {
-            button.classList.add('swiper-pagination-bullet-active');
-          }
-
           button.addEventListener('click', () => {
             this.slideTo(index);
           });
 
+          if (index === activeIndex) {
+            button.classList.add('swiper-pagination-bullet-active');
+          }
+
           return button.outerHTML;
         }
 
-        return '';
+        return ''; // Если index не в пределах start и end
       },
     },
     on: {

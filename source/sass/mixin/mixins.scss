@@ -185,6 +185,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
+  color: $text;
 
   @include tablet {
     font-size: 16px;
@@ -223,6 +224,8 @@
   font-weight: 400;
   line-height: 14px;
   text-align: left;
+  color: $text;
+  padding: 0;
 
   @include tablet {
     font-size: 12px;
@@ -418,4 +421,12 @@
   @include desktop {
     width: 1240px;
   }
+}
+
+@mixin field {
+  padding: 0;
+  min-height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background-color: transparent;
 }

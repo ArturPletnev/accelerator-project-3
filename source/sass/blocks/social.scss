@@ -1,0 +1,101 @@
+.social {
+  @include list;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-self: center;
+
+  @include desktop {
+    gap: 20px;
+  }
+}
+
+.social__link {
+  position: relative;
+  display: block;
+  width: 26px;
+  height: 26px;
+  background-color: $primary;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+
+  &::before {
+    content: "";
+    transition: background-color 0.3s ease;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  @include tablet {
+    width: 36px;
+    height: 36px;
+  }
+
+  &--vk::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 8px;
+    mask-image: url("/__spritemap#sprite-vk-view");
+
+    @include tablet {
+      width: 16px;
+      height: 9px;
+      mask-size: 16px 9px;
+    }
+  }
+
+  &--ok::before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 12px;
+    mask-image: url("/__spritemap#sprite-ok-view");
+
+    @include tablet {
+      width: 10px;
+      height: 17px;
+      mask-size: 10px 17px;
+    }
+  }
+
+  &--reddit::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    mask-image: url("/__spritemap#sprite-reddit-view");
+
+    @include tablet {
+      width: 16px;
+      height: 17px;
+      mask-size: 16px 17px;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      &::before {
+        background-color: rgba(255, 255, 255, 0.7);
+      }
+    }
+  }
+
+  &:active {
+    background-color: $state-active;
+  }
+
+  &:focus-visible {
+    outline: none;
+    background-color: $white;
+
+    &::before {
+      background-color: $primary;
+    }
+  }
+}

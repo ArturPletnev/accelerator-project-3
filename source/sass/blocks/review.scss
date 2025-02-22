@@ -1,0 +1,136 @@
+.review {
+  padding: 30px 15px;
+  min-height: 472px;
+  display: grid;
+  grid-template-columns: 60px 186px;
+  gap: 0 10px;
+  border: 2px solid $primary;
+  border-radius: 16px;
+
+  @include tablet {
+    padding: 50px;
+    min-width: 560px;
+    min-height: 417px;
+    grid-template-columns: 90px 57px 279px;
+    gap: 0 15px;
+  }
+
+  @include desktop {
+    min-width: 604px;
+    min-height: 483px;
+    grid-template-columns: 90px 63px 316px;
+    gap: 30px 15px;
+  }
+
+  p {
+    @include text-small;
+
+    @include desktop {
+      line-height: 26px;
+    }
+  }
+}
+
+.review__avatar-wrapper {
+  margin-bottom: 16px;
+
+  @include tablet {
+    margin-bottom: 31px;
+  }
+
+  @include desktop {
+    margin: 0;
+  }
+}
+
+.review__avatar {
+  display: block;
+}
+
+.review__name {
+  margin: 0;
+  padding: 12px 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: $primary;
+
+  @include tablet {
+    padding: 22px 0;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  @include desktop {
+    padding: 21px 0;
+    font-size: 18px;
+  }
+}
+
+.review__blockquote {
+  @include h6;
+
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include tablet {
+    gap: 24px;
+  }
+
+  @include desktop {
+    min-width: 504px;
+    gap: 25px;
+  }
+}
+
+.review__description {
+  margin: 0 0 24px;
+  display: grid;
+  grid-template-columns: 108px 67px;
+  align-items: center;
+  gap: 0 25px;
+  grid-column: 1 / -1;
+
+  @include tablet {
+    margin: 0 0 30px auto;
+    padding: 0 0 0 20px;
+    grid-template-columns: 126px 78px;
+    grid-column: 3;
+  }
+
+  @include desktop {
+    margin: 0 0 0 auto;
+    padding: 0 0 0 92px;
+  }
+}
+
+.review__description-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @include tablet {
+    gap: 11px;
+  }
+
+  @include desktop {
+    gap: 10px;
+  }
+}
+
+.review__description-term {
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: $primary;
+}
+
+.review__description-definition {
+  @include text-xsmall;
+
+  opacity: 0.9;
+}
+
