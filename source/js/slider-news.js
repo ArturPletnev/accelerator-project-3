@@ -72,13 +72,13 @@ const initNewsSlider = () => {
     },
     breakpoints: {
       320: {
-        slidesPerView: 1,
+        slidesPerView: 2,
         slidesPerGroup: 1,
       },
       768: {
         spaceBetween: 30,
         slidesPerGroup: 1,
-        slidesPerView: 1,
+        slidesPerView: 4,
       },
       1440: {
         spaceBetween: 32,

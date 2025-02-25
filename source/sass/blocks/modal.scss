@@ -24,9 +24,9 @@
   cursor: default;
 
   @include tablet {
-    margin: 204px auto 0;
+    margin: 18px auto 0;
     padding: 56px 80px 60px;
-    max-width: 510px;
+    width: 510px;
   }
 
   @include desktop {
